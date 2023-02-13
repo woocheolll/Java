@@ -18,6 +18,7 @@ class Control1_2 {
     }
 }
 
+
 class Control1_3 {
     public static void main(String[] args) {
         char ch = 'p';
@@ -106,5 +107,88 @@ class Control2_1 {
             default: monthString = "Invalid month";
         }
         System.out.println(monthString);
+    }
+}
+
+class Control3_1 {
+    public static void main(String[] args) {
+        int i = 0;
+        for (i = 0; i < 5; i++) {
+            System.out.println("for 문이 " + (i + 1) + "번째 반복 실행중입니다.");
+        }
+        System.out.println("for 문이 종료된 후 변수 i의 값은 " + i + "입니다.");
+    }
+}
+
+class Control3_2 {
+    public static void main(String[] args) {
+        // 1번
+        for (int i = 1; i <= 10; i = i * 2) {
+            System.out.println("1번 i는 현재 " + (i) + "입니다.");
+        }
+        System.out.println();
+        // 2번
+        for (int i = 10; i >= 1; i--) {
+            System.out.println("2번 i는 현재 " + (i) + "입니다.");
+        }
+    }
+}
+
+class Control3_3 {
+    public static void main(String[] args) {
+        // 초기화 시 변수 2개 사용 가능합니다. 단, 타입이 같아야 한다.
+        for (int i = 1, j = 10; i <= 10; i++, j--) {
+            System.out.println("i는 현재 " + (i) + "입니다.");
+            System.out.println("j는 현재 " + (j) + "입니다.");
+        }
+        System.out.println();
+        // 이렇게 변수 2개를 사용하여 조건식을 구성할 수 있습니다.
+        for (int k = 1, t = 10; k <= 10 && t > 2; k++, t--) {
+            System.out.println("k는 현재 " + (k) + "입니다.");
+            System.out.println("t는 현재 " + (t) + "입니다.");
+        }
+    }
+}
+
+class Control3_4 {
+    public static void main(String[] args) {
+        for (int i = 2; i < 10; i++) {
+            System.out.println(i + "단 시작합니다.");
+            for (int j = 1; j < 10; j++) {
+                System.out.println("j는 현재 " + (j) + "입니다.");
+                System.out.println(i + "*" + j + "=" + (i * j));
+            }
+        }
+    }
+}
+
+class Control3_5 {
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5};
+
+        for (int e : arr) {
+            System.out.print(e + " ");
+        }
+    }
+}
+
+class Control4_1 {
+    public static void main(String[] args) {
+        // 괄호 { } 안의 내용을 20번 반복
+        // 1. 1 ~ 10 사이의 난수를 20개 출력하시오.
+        // 1,2,3,4,5,6,7,8,9,10
+
+        // 2. -5 ~ 5 사이의 난수를 20개 출력하시오.
+        // -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
+        for (int i = 0; i < 20; i++) {
+            // 1번
+//            System.out.println(Math.random() * 10); // 1. 0.0 * 10 <= x * 10 < 1.0 * 10
+//            System.out.println((int)(Math.random() * 10)); // 2. 0 <= (int)(x * 10) < 10
+//            System.out.println((int)(Math.random() * 10) + 1); // 3. 1 <= (int)(x * 10) + 1 < 11
+
+            // 2번
+//            System.out.println((int)(Math.random() * 11)); // 0 ~ 10
+            System.out.println((int)(Math.random() * 11) - 5); // -5 ~ 5
+        }
     }
 }
