@@ -226,3 +226,58 @@ class Operator6_2 {
         System.out.println("s1.equals(s3) = " + s1.equals(s3)); // true
     }
 }
+
+class Operator7_1 {
+    public static void main(String[] args) {
+        boolean result1, result2, result3, result4, reusult5, result6;
+
+        char ch1 = 'a', ch2 = 'B';  // 'a' : 97 , 'A' : 65, 'B' : 66, 'C' : 67
+
+        result1 = ch1 > 'A' && ch2 < 'C';
+        result2 = ch1 == 'A' && ch2 < 'C';
+
+        result3 = ch1 > 'A' || ch2 < 'C';
+        result4 = ch1 < 'A' || ch2 > 'C';
+
+        System.out.println("&& 연산자에 의한 결과 result1 = " + result1); // true
+        System.out.println("&& 연산자에 의한 결과 result2 = " + result2); // false
+
+        System.out.println("|| 연산자에 의한 결과 result3 = " + result3); // true
+        System.out.println("|| 연산자에 의한 결과 result4 = " + result4); // false
+
+        System.out.println("! 연산자에 의한 결과 result4 = " + !result4); // true
+
+        System.out.println();
+
+        int num = 10;
+        // num 은 2의 배수 그리고 3의 배수이다.
+        reusult5 = num % 2 == 0 && num % 3 == 0;
+        System.out.println("num 은 2의 배수 그리고 3의 배수 = " + reusult5); // false
+
+        // num 은 2의 배수 또는 3의 배수이다.
+        result6 = num % 2 == 0 || num % 3 == 0;
+        System.out.println("num 은 2의 배수 또는 3의 배수 = " + result6); // true
+    }
+}
+
+class Operator7_2 {
+    public static void main(String[] args) {
+        int num1 = 8, num2 = -8;
+        System.out.println("8의 2진수 = " + Integer.toBinaryString(num1)); // 0 생략 가능!
+        System.out.println("-8의 2진수 = " + Integer.toBinaryString(num2));
+        System.out.println("-9의 2진수 = " + Integer.toBinaryString(-9)); // 32bit, int = 4byte
+
+        // 00000000000000000000000000001000 ,  8
+        // 11111111111111111111111111111000 , -8
+        System.out.println("& 연산자에 의한 결과 = " + (num1 & num2)); // 00000000000000000000000000001000, 8
+        System.out.println("| 연산자에 의한 결과 = " + (num1 | num2)); // 11111111111111111111111111111000, -8
+        System.out.println("^ 연산자에 의한 결과 = " + (num1 ^ num2)); // 11111111111111111111111111110000, -16
+
+        System.out.println("~ 연산자에 의한 결과 = " + ~num1); // 11111111111111111111111111110111, -9
+
+        System.out.println("<< 연산자에 의한 결과 = " + (num1 << 2)); // 32
+        System.out.println(">> 연산자에 의한 결과 = " + (num2 >> 2)); // -2
+
+        System.out.println(">>> 연산자에 의한 결과 = " + (num2 >>> 2)); // 1073741822
+    }
+}
