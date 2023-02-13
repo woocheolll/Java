@@ -85,3 +85,30 @@ class Operator3_2 {
         System.out.println("b3 = " + b3);
     }
 }
+
+class Operator4_1 {
+    public static void main(String[] args) {
+        int a = 10, b = 4;
+
+        // 덧셈
+        System.out.print("a + b = ");
+        System.out.println(a + b); // a + b = 14
+
+        // 뺄셈
+        System.out.print("a - b = ");
+        System.out.println(a - b); // a - b = 6
+
+        // 곱셈
+        System.out.print("a * b = ");
+        System.out.println(a * b); // a * b = 40
+
+        // 나눗셈
+        // 소수점 이하는 버려진다.
+        System.out.print("a / b = ");
+        System.out.println(a / b); // a / b = 2
+
+        // 10 / 4.0f -> 10.0f / 4.0f -> 2.5
+        System.out.print("a / (float)b = "); // a / (float)b = 2.5
+        System.out.println(a / (float)b);
+    }
+}
