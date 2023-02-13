@@ -167,3 +167,22 @@ class Operator5_2 {
         System.out.println("절대값 : " + Math.abs(num*-1)); // 절대값 : 3.14
     }
 }
+
+class Operator5_3 {
+    public static void main(String[] args) {
+        int x = 10;
+        int y = 8;
+
+        System.out.print("x를 y로 나눈 몫 = ");
+        System.out.println(x / y); // x를 y로 나눈 몫 = 1
+
+        System.out.print("x를 y로 나눈 나머지 = ");
+        System.out.println(x % y); // x를 y로 나눈 나머지 = 2
+
+        // 부호 무시 확인
+        int n = 3;
+        int z = -3;
+        System.out.println("x % n = " + x % n); // x % n = 1
+        System.out.println("x % z = " + x % z); // % z = 1
+    }
+}
