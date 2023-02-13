@@ -134,3 +134,36 @@ class Operator4_2 {
         System.out.println("l = " + l); // l = 2000000000000
     }
 }
+
+class Operator5_1 {
+    public static void main(String[] args) {
+        long result = Math.round(3.645678);
+        System.out.println("result = " + result); // result = 4
+
+        // 소수점 4째 자리에서 반올림한 값을 구하라!
+        double pi = 3.141592;
+        // pi * 1000 = 3141.592
+        // Math.round(3141.592) = 3142
+        // 3142 / 1000.0 = 3.142
+        double shortPi = Math.round(pi * 1000) / 1000.0;
+        System.out.println(shortPi); // 3.142
+
+        // 3.141 구하기!
+        double pi2 = 3.141592;
+        // pi2 * 1000 = 3141.592
+        // (int)3141.592
+        System.out.println("(int)(pi2 * 1000) = " + (int) (pi2 * 1000));  // (int)(pi2 * 1000) = 3141
+        System.out.println("(int)(pi2 * 1000) / 1000.0  = " + (int) (pi2 * 1000) / 1000.0);  // (int)(pi2 * 1000) / 1000.0  = 3.141
+    }
+}
+
+class Operator5_2 {
+    public static void main(String[] args) {
+        double num = 3.14;
+
+        System.out.println("반올림 : " + Math.round(num)); // 반올림 : 3
+        System.out.println("올림 : " + Math.ceil(num)); // 올림 : 4.0
+        System.out.println("내림 : " + Math.floor(num)); // 내림 : 3.0
+        System.out.println("절대값 : " + Math.abs(num*-1)); // 절대값 : 3.14
+    }
+}
