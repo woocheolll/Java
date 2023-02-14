@@ -192,3 +192,45 @@ class Control4_1 {
         }
     }
 }
+
+class Control5_1 {
+    public static void main(String[] args) {
+        int i = 10; // while 반복 횟수 , 즉 for 문의 초기화
+
+//        while (i-- != 0) {
+//            System.out.println(i);
+//        }
+
+        // 위 코드와 같은 동작을 수행합니다.
+        while (i != 0) {
+            i--;
+            System.out.println(i);
+        }
+    }
+}
+
+class Control5_2 {
+    public static void main(String[] args) {
+        int sum = 0;
+        int i = 0;
+
+        while (sum <= 100) {
+            System.out.println("i = " + i);
+            System.out.println("sum = " + sum);
+            sum += ++i;
+        }
+    }
+}
+
+class Control5_3 {
+    public static void main(String[] args) {
+        int j = 1;
+
+        do {
+            System.out.println("do / while 문이 " + j + "번째 반복 실행중입니다.");
+            j++; // 이 부분을 삭제하면 무한 루프에 빠지게 됨.
+        } while (j < 20);
+
+        System.out.println("do / while 문이 종료된 후 변수 j의 값은 " + j + "입니다.");
+    }
+}
