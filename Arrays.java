@@ -238,3 +238,73 @@ class Arrays5_1 {
 //        anInt = 33
 //        anInt = 54
 //        anInt = 77
+
+class Arrays6_1 {
+    public static void main(String[] args) {
+        int[] num = {0, 1, 2};
+        int[][] score = {
+                {88, 35, 100},
+                {84, 60, 55},
+                {100, 99, 72},
+                {33, 54, 77}
+        };
+
+        System.out.println("Arrays.toString(num) = " + Arrays.toString(num));
+        System.out.println("Arrays.deepToString(score) = " + Arrays.deepToString(score));
+        System.out.println();
+
+        String[][] strArr1 = {
+                {"AAA","BBB","CCC"},
+                {"aaa","bbb","ccc"},
+        };
+        String[][] strArr2 = {
+                {"AAA","BBB","CCC"},
+                {"aaa","bbb","ccc"},
+        };
+
+        // 1 차원 비교에는 equals
+        System.out.println("Arrays.equals(strArr1[0], strArr2[0]) = " + Arrays.equals(strArr1[0], strArr2[0])); // true
+        System.out.println("Arrays.equals(strArr1[1], strArr2[0]) = " + Arrays.equals(strArr1[1], strArr2[0])); // false
+
+        System.out.println("Arrays.equals(strArr1, strArr2) = " + Arrays.equals(strArr1, strArr2)); // false
+
+        System.out.println();
+        // 다차원 비교에는 deepEquals
+        System.out.println("Arrays.deepEquals(strArr1, strArr2) = " + Arrays.deepEquals(strArr1, strArr2)); // true
+    }
+}
+
+class Arrays6_2 {
+    public static void main(String[] args) {
+        int[] arr = {0,1,2,3,4};
+        System.out.println("Arrays.toString(arr) = " + Arrays.toString(arr)); // [0, 1, 2, 3, 4]
+
+        System.out.println();
+        // copyOf
+        int[] arr2 = Arrays.copyOf(arr, arr.length);
+        System.out.println("Arrays.toString(arr2) = " + Arrays.toString(arr2)); // [0, 1, 2, 3, 4]
+        int[] arr3 = Arrays.copyOf(arr, 3);
+        System.out.println("Arrays.toString(arr3) = " + Arrays.toString(arr3)); //  [0, 1, 2]
+        int[] arr4 = Arrays.copyOf(arr, 7); // 범위가 넘어가는 복사는 초기화값이 들어간다.
+        System.out.println("Arrays.toString(arr4) = " + Arrays.toString(arr4)); //  [0, 1, 2, 3, 4, 0, 0]
+
+        System.out.println();
+        // copyOfRange
+        int[] arr5 = Arrays.copyOfRange(arr, 2, 4); // [2, 3]
+        System.out.println("Arrays.toString(arr5) = " + Arrays.toString(arr5));
+        int[] arr6 = Arrays.copyOfRange(arr, 0, 7);// 범위가 넘어가는 복사는 초기화값이 들어간다.
+        System.out.println("Arrays.toString(arr6) = " + Arrays.toString(arr6)); // [0, 1, 2, 3, 4, 0, 0]
+    }
+}
+
+class Arrays6_3 {
+    public static void main(String[] args) {
+        int[] arr = {3, 1, 8, 5, 9, 2, 10, 7, 6, 4};
+        System.out.println("Arrays.toString(arr) = " + Arrays.toString(arr));
+        System.out.println();
+
+        Arrays.sort(arr); // 오름차순으로 정렬됩니다.
+        System.out.println("sort");
+        System.out.println("Arrays.toString(arr) = " + Arrays.toString(arr));
+    }
+}
