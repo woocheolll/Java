@@ -234,3 +234,74 @@ class Control5_3 {
         System.out.println("do / while 문이 종료된 후 변수 j의 값은 " + j + "입니다.");
     }
 }
+
+class Control6_1 {
+    public static void main(String[] args) {
+        int sum = 0;
+        int i = 0;
+
+        while (true) {
+            if(sum > 100)
+                break;
+            ++i;
+            sum += i;
+        }
+
+        System.out.println("i = " + i);
+        System.out.println("sum = " + sum);
+    }
+}
+
+class Control6_2 {
+    public static void main(String[] args) {
+        for (int i = 0; i <= 10; i++) {
+            // 3의 배수는 건너뜀 : 3, 6, 9
+            if (i % 3 == 0)
+                continue;
+            System.out.println("i = " + i);
+        }
+    }
+}
+
+class Control6_3 {
+    public static void main(String[] args) {
+        allLoop :
+        for (int i = 2; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                if (i == 5) {
+                    break allLoop;
+                }
+                System.out.println(i + " * " + j + " = " + (i * j));
+            }
+        }
+    }
+}
+
+class Control6_4 {
+    public static void main(String[] args) {
+        int i = 2;
+        allLoop :
+        while (true) {
+            for (int j = 1; j < 10; j++) {
+                if (i == 5) {
+                    break allLoop;
+                }
+                System.out.println(i + " * " + j + " = " + (i * j));
+            }
+            i++;
+        }
+    }
+}
+
+class Control6_5 {
+    public static void main(String[] args) {
+        allLoop : for (int i = 2; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                if (i == 5) {
+                    continue allLoop;
+                }
+                System.out.println(i + " * " + j + " = " + (i * j));
+            }
+        }
+    }
+}
