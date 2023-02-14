@@ -126,3 +126,39 @@ class Arrays3_4 {
         System.out.println("결과 = " + Arrays.toString(numArr));
     }
 }
+
+class Arrays4_1 {
+    public static void main(String[] args) {
+        String str = "ABCDEFG";
+        char ch = str.charAt(3);
+        System.out.println("ch = " + ch); // ch = D
+        // 3번째 출력 (0번부터 시작)
+
+        String str2 = str.substring(1, 4);
+        System.out.println("str2 = " + str2); // str2 = BCD
+        // 1번째 부터 4번째 전까지 출력
+
+        String str3 = str.substring(1);
+        System.out.println("str3 = " + str3); // str3 = BCDEFG
+        // 1번째 부터 마지막까지 출력
+
+        String str4 = str.substring(1, str.length());
+        System.out.println("str4 = " + str4); // str4 = BCDEFG
+        // 1번째 부터 str 길이 만큼 출력
+
+        char[] chArr = str.toCharArray();
+        System.out.println("Arrays.toString(chArr) = " + Arrays.toString(chArr));
+        // 문자열으로 출력
+    }
+}
+
+class Arrays4_2 {
+    public static void main(String[] args) {
+        String[] strArr = {"축구", "야구", "골프", "테니스"};
+        System.out.println("Arrays.toString(strArr) = " + Arrays.toString(strArr));
+        // 문자열으로 출력
+        String[] strArr2 = new String[4];
+        System.out.println("Arrays.toString(strArr2) = " + Arrays.toString(strArr2));
+        //참조형 이기 때문에 기본값 null 로 초기화 됩니다.
+    }
+}
