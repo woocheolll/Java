@@ -162,3 +162,79 @@ class Arrays4_2 {
         //참조형 이기 때문에 기본값 null 로 초기화 됩니다.
     }
 }
+
+class Arrays5_1 {
+    public static void main(String[] args) {
+        int[][] score = {
+                {88, 35, 100},
+                {84, 60, 55},
+                {100, 99, 72},
+                {33, 54, 77}
+        };
+
+        //길이 확인하기
+        System.out.println("score.length = " + score.length); // score.length = 4
+        System.out.println("score[0].length = " + score[0].length);  // score[0].length = 3
+
+        System.out.println();
+        // 출력 예 1 : Arrays.toString()
+        System.out.println("Arrays.toString()");
+        System.out.println("Arrays.toString(score[0]) = " + Arrays.toString(score[0])); // Arrays.toString(score[0]) = [88, 35, 100]
+        System.out.println("Arrays.toString(score[1]) = " + Arrays.toString(score[1])); // Arrays.toString(score[1]) = [84, 60, 55]
+        System.out.println("Arrays.toString(score[2]) = " + Arrays.toString(score[2]));  // Arrays.toString(score[2]) = [100, 99, 72]
+        System.out.println("Arrays.toString(score[3]) = " + Arrays.toString(score[3])); // Arrays.toString(score[3]) = [33, 54, 77]
+
+        System.out.println();
+        // 출력 예 2 : for
+        System.out.println("for");
+        for (int i = 0; i < score.length; i++) {
+            for (int j = 0; j < score[i].length; j++) {
+                System.out.println("score[" + i + "][" + j + "] = " + score[i][j]); //
+            }
+            System.out.println();
+
+        }
+//        for
+//        score[0][0] = 88
+//        score[0][1] = 35
+//        score[0][2] = 100
+//
+//        score[1][0] = 84
+//        score[1][1] = 60
+//        score[1][2] = 55
+//
+//        score[2][0] = 100
+//        score[2][1] = 99
+//        score[2][2] = 72
+//
+//        score[3][0] = 33
+//        score[3][1] = 54
+//        score[3][2] = 77
+
+        System.out.println();
+        // 출력 예 3 : 향상된 for
+        System.out.println("향상된 for");
+        for (int[] ints : score) {
+            for (int it : ints) {
+                System.out.println("anInt = " + it);
+            }
+            System.out.println();
+        }
+    }
+}
+//향상된 for
+//        anInt = 88
+//        anInt = 35
+//        anInt = 100
+//
+//        anInt = 84
+//        anInt = 60
+//        anInt = 55
+//
+//        anInt = 100
+//        anInt = 99
+//        anInt = 72
+//
+//        anInt = 33
+//        anInt = 54
+//        anInt = 77
