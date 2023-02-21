@@ -205,3 +205,680 @@ class Obj4_1Main {
         // 메서드 종료시 지역 변수 삭제
     }
 }
+
+class Method5_1 {
+    int add(int x, int y) {
+        int result = x + y;
+        return result; // 값을 반환
+    }
+}
+
+class Method5_1Main {
+    public static void main(String[] args) {
+        Method5_1 method = new Method5_1(); // Method5_1 클래스에 만든 메서드 add 를 사용하기 위해 객체 생성
+
+        int result = method.add(3, 5); // add 메서드를 사용해서 입력한 값(3,5)으로 처리된 값을 반환받아 result 변수에 저장
+        System.out.println("result = " + result);
+    }
+}
+
+class Method5_2 {
+    void gugudan(int dan) {
+        if (!(dan >= 2 && dan <= 9)) {
+            System.out.println(dan + "단은 없습니다.");
+            return;
+        }
+        System.out.println(dan + "단 시작!");
+        for (int i = 1; i < 10; i++) {
+            System.out.println(dan + "*" + i + " = " + dan * i);
+        }
+        System.out.println();
+    }
+
+    boolean checkMax(int x, int y) {
+        if (x > y) {
+            return true;
+        } else {
+            return false;
+            // return 반드시 필요합니다. 만약 없으면 조건문이 false 일 경우, void 가 아닌데 return 문이 없음으로 Error
+        }
+    }
+
+}
+
+class Method5_2Main {
+    public static void main(String[] args) {
+        Method5_2 method = new Method5_2();
+
+        method.gugudan(2);
+        method.gugudan(5);
+        method.gugudan(10);
+        method.gugudan(9);
+
+        System.out.println("method.checkMax(10, 8) = " + method.checkMax(10, 8));
+        System.out.println("method.checkMax(5, 9) = " + method.checkMax(5, 9));
+    }
+}
+
+class Time5_1 {
+    int hour;
+    int minute;
+    int second;
+}
+
+class Method5_3 {
+    static void initObj(Time5_1 time, int hour, int minute, int second) {
+        time.hour = hour;
+        time.minute = minute;
+        time.second = second;
+    }
+}
+
+class Method5_3Main {
+    public static void main(String[] args) {
+        Time5_1 t1 = new Time5_1();
+        t1.hour = 100;
+        t1.minute = 20;
+        t1.second = 43;
+
+        Time5_1 t2 = new Time5_1();
+        t2.hour = 22;
+        t2.minute = 30;
+        t2.second = 23;
+
+        Time5_1 t3 = new Time5_1();
+        t3.hour = 45;
+        t3.minute = 40;
+        t3.second = 52;
+
+        System.out.println("t1.hour = " + t1.hour);
+        System.out.println("t2.hour = " + t2.hour);
+        System.out.println("t3.hour = " + t3.hour);
+        System.out.println();
+
+        // 하나하나 인스턴스를 만들고 위처럼 인스턴스 변수를 초기화 하려니 매우 귀찮지 않나요?
+        // 물론 '생성자' 라는 개념이 뒤에 나오지만 일단은 메서드를 사용하여 코드의 수를 확 줄여 보겠습니다.
+
+        Time5_1 t4 = new Time5_1();
+        Time5_1 t5 = new Time5_1();
+        Time5_1 t6 = new Time5_1();
+
+        Method5_3.initObj(t4, 100, 20, 43);
+        Method5_3.initObj(t5, 22, 30, 23);
+        Method5_3.initObj(t6, 45, 40, 52);
+
+        System.out.println("t4.hour = " + t4.hour);
+        System.out.println("t5.hour = " + t5.hour);
+        System.out.println("t6.hour = " + t6.hour);
+
+        // 이처럼 메서드를 사용하니 코드의 수가 굉장히 많이 줄어 가독성이 좋아졌습니다.
+    }
+}
+
+class CallStack5_1 {
+
+    static void firstMethod() {
+        System.out.println("firstMethod()");
+        secondMethod();
+    }
+
+    static void secondMethod() {
+        System.out.println("secondMethod()");
+        thirdMethod();
+    }
+
+    static void thirdMethod() {
+        System.out.println("thirdMethod()");
+        finalMethod();
+    }
+
+    static void finalMethod(){
+        System.out.println("finalMethod()");
+    }
+
+    public static void main(String[] args) {
+        secondMethod();
+    }
+}
+
+class CallStack5_2 {
+
+    static void firstMethod() {
+        secondMethod();
+        System.out.println("firstMethod()");
+    }
+
+    static void secondMethod() {
+        thirdMethod();
+        System.out.println("secondMethod()");
+    }
+
+    static void thirdMethod() {
+        finalMethod();
+        System.out.println("thirdMethod()");
+    }
+
+    static void finalMethod(){
+        System.out.println("finalMethod()");
+    }
+
+    public static void main(String[] args) {
+        firstMethod();
+    }
+}
+
+class Data6_1 {
+    int x; // 기본형
+    int y; // 기본형
+}
+
+class Data6_1Main {
+    public static void main(String[] args) {
+
+        Data6_1 data  = new Data6_1();
+        data.x = 10;
+        data.y = 20;
+
+        System.out.println("Data6_1 클래스로 만든 data 인스턴스의 인스턴스 변수 x, y 값 확인");
+        System.out.println("data 인스턴스 변수 x = " + data.x);
+        System.out.println("data 인스턴스 변수 y = " + data.y);
+        System.out.println();
+
+        // changeParameter 메서드 의 매개변수에 Data 클래스의 인스턴스 변수를 입력한다.
+        System.out.println("입력받은 매개변수의 값을 바꾸는 메서드 수행");
+        changeParameter(data.x, data.y);
+        System.out.println();
+
+        // changeParameter(data.x, data.y); 여기서의 data.x 와 data.y 는
+        // data 의 인스턴스 변수의 값 그자체가 복사되어 넘어갑니다.
+        // 따라서 changeParameter 메서드에서 입력받은 매개변수의 값을 바꿔도
+        // 영향을 받지 않습니다.
+        System.out.println("Data6_1 클래스로 만든 data 인스턴스의 인스턴스 변수의 값이 변경되었는지 확인");
+        System.out.println("changeParameter 메서드 수행 후 data 인스턴스 변수 x = " + data.x);
+        System.out.println("changeParameter 메서드 수행 후 data 인스턴스 변수 y = " + data.y);
+    }
+
+    static void changeParameter(int x, int y) {
+        System.out.println();
+        System.out.println("changeParameter 메서드 시작");
+        System.out.println("입력 받은 매개변수 x 와 y의 값 확인");
+        System.out.println("입력 받은 매개변수 x = " + x);
+        System.out.println("입력 받은 매개변수 y = " + y);
+
+        System.out.println();
+        System.out.println("입력 받은 매개변수 x 와 y의 값을 변경 한 후 확인");
+        x = 100;
+        y = 200;
+        System.out.println("변경 한 후 x = " + x);
+        System.out.println("변경 한 후 y = " + y);
+        System.out.println("changeParameter 메서드 끝");
+    }
+}
+
+class Data6_2 {
+    Data6_3  data2 = new Data6_3(); // 참조형
+}
+
+class Data6_3 {
+    int x; // 기본형
+    int y; // 기본형
+}
+
+class Data6_2Main {
+    public static void main(String[] args) {
+
+        Data6_2 data  = new Data6_2();
+        data.data2.x = 10;
+        data.data2.y = 20;
+
+        System.out.println("Data6_2 클래스로 만든 data 인스턴스의 data2인스턴스의 인스턴스 변수 값 확인");
+        System.out.println("참조변수 data2의 인스턴스 변수 x = " + data.data2.x);
+        System.out.println("참조변수 data2의 인스턴스 변수 y = " + data.data2.y);
+        System.out.println();
+
+        // changeParameter 메서드 의 매개변수에 Data6_2 클래스의 참조형 변수인 data2 를 입력
+        System.out.println("입력받은 매개변수의 값을 바꾸는 메서드 수행");
+        changeParameter(data.data2);
+        System.out.println();
+
+        // changeParameter(Data6_3 data2); 여기서 data.data2 는
+        // data 인스턴스의 참조형 변수 data2의 주소값이 넘어 갑니다.
+        // 따라서 changeParameter 메서드에서 입력받은 data2의 주소값을 통해
+        // data2 의 인스턴스에 접근하여 인스턴스 변수를 바꾸기 때문에 영향을 받습니다.
+        System.out.println("Data6_3 클래스로 만든 data 인스턴스의 참조변수 data2의 인스턴스 변수 값이 변경되었는지 확인");
+        System.out.println("changeParameter 메서드 수행 후 data2의 인스턴스 변수 x = " + data.data2.x);
+        System.out.println("changeParameter 메서드 수행 후 data2의 인스턴스 변수 y = " + data.data2.y);
+    }
+
+    static void changeParameter(Data6_3 data2) {
+        System.out.println();
+        System.out.println("changeParameter 메서드 시작");
+        System.out.println("입력 받은 매개변수 data2의 인스턴스 x 와 y의 값 확인");
+        System.out.println("입력 받은 매개변수 data2의 인스턴스 x = " + data2.x);
+        System.out.println("입력 받은 매개변수 data2의 인스턴스 y = " + data2.y);
+
+        System.out.println();
+        System.out.println("입력 받은 매개변수 data2의 인스턴스 x 와 y의 값을 변경 한 후 확인");
+        data2.x = 100;
+        data2.y = 200;
+        System.out.println("변경 한 후 data2의 인스턴스 x = " + data2.x);
+        System.out.println("변경 한 후 data2의 인스턴스 y = " + data2.y);
+        System.out.println("changeParameter 메서드 끝");
+    }
+}
+
+class StaticMethod7_1 {
+    int num1, num2; // 인스턴스 변수 선언
+
+    // 클래스 변수 선언
+//    static int num1 = 10, num2 = 20;
+
+    static int add(int num1, int num2) { // 메서드 반환타입 앞에 static 이 붙었기 때문에 static 메서드가 됩니다.
+
+        System.out.println();
+        System.out.println("매개변수로 입력 받은 num1, num2 확인");
+        System.out.println("num1 = " + num1);
+        System.out.println("num2 = " + num2);
+
+        // 여기서 매개 변수에 있는 num1, num2 와 위에 인스턴스 변수로 선언한 num1, num2 는 같은 걸까요?
+        // 기본형 매개변수에서 배웠듯이 같지 않습니다. 서로 영향을 받지 않습니다.
+
+        // 여기서의 num1 과 num2 는 단지 인스턴스 변수와 이름만 같은 지역변수일 뿐 메서드가 종료되면 사라집니다.
+        // 인스턴스 변수는 클래스 메서드에서 사용하지 못합니다.
+
+        // 그렇다면 추가로 StaticMethod7_1 에 선언한 변수를 사용하고 싶다면?
+        // 인스턴스 변수가 아닌 클래스 변수를 선언해야합니다. static 타입 변수이름;
+
+        // 위에 클래스 변수의 주석을 풀고 인스턴스 변수는 주석을 해주세요!
+
+        // 자 그럼 이제 클래스 변수로 선언을 했으니까
+        // 매개 변수에 있는 num1, num2 와 위에 클래스 변수로 선언한 num1, num2 는 같은 걸까요?
+        // 그렇지 않습니다. 위에서 말씀드렸듯이 num1, num2는 매개변수이자 클래스 변수와 이름만 같습니다.
+        // 또한 클래스 변수 를 사용하려면 클래스명.클래스변수 로 만 접근 가능합니다.
+
+        // 이렇게 클래스 메서드에서 클래스 변수를 사용할 수 있습니다. 아래 주석 풀어주세요!
+
+//        System.out.println("클래스변수 확인");
+//        System.out.println("StaticMethod7_1.num1 = " + StaticMethod7_1.num1);
+//        System.out.println("StaticMethod7_1.num2 = " + StaticMethod7_1.num2);
+
+        System.out.println("num1 + num2 = " + (num1 + num2));
+        return num1 + num2;
+    }
+
+
+}
+
+class StaticMethod7_1Main {
+
+    public static void main(String[] args) {
+        StaticMethod7_1 methodTest = new StaticMethod7_1(); // 객체 생성
+        methodTest.num1 = 10;
+        methodTest.num2 = 20;
+
+        // methodTest.add(methodTest.num1, methodTest.num2); // add 는 static 메서드 이기 때문에 객체로 생성된 참조변수로는 접근할 수 없습니다.
+
+        // 클래스이름.메서드이름() 방식으로 static 메서드를 호출
+        StaticMethod7_1.add(methodTest.num1, methodTest.num2);
+    }
+}
+
+class InstMethod7_1 {
+    int num1, num2; // 인스턴스 변수 선언
+    static int num3 = 100;
+
+    int add(int num1, int num2) { // 메서드 반환타입 앞에 static 이 없기 때문에 인스턴스 메서드 입니다.
+
+        System.out.println();
+        System.out.println("매개변수로 입력 받은 num1, num2 확인");
+        System.out.println("num1 = " + num1);
+        System.out.println("num2 = " + num2);
+
+        // 계속된 실습으로 우리는 위에 매개변수 num1, num2 와 InstMethod7_1 의 인스턴스 변수는 다르다는 것을 알았습니다.
+        // 그럼 이런 의문이 듭니다. InstMethod7_1 클래스로 methodTest 객체를 생성했고
+        // 참조변수를 통해 methodTest.num1 = 10;와 같이 인스턴스 변수에 값도 넣었는데
+        // 저 값을 매개변수로 받는 의미가 있는 건가? 확인해 보겠습니다.
+
+        // 인스턴스 변수 값 확인 : this 는 뒤에서 배우기 때문에 간단히 설명드리자면 인스턴스 변수와 매개변수를 구분하기 위한 것입니다.
+        System.out.println("this.num1 = " + this.num1);
+        // 10 이렇게 10이 출력될겁니다. 그럼 비교를 위해 아래 methodTest.add(methodTest.num1, methodTest.num2);
+        // 주석 하고 methodTest.add(80,90); 주석을 푸세요!
+
+        System.out.println("매개변수 이자 지역변수 num1 = " + num1);
+        // 값이 달라졌을 겁니다. 이제 인스턴스 num1 과 매개변수 num1 은 이름만 같을 뿐이라는 것을 아셨을 겁니다.
+        // 그래서 구분을 위해 변수의 이름을 다르게 하거나 this 를 사용해서 구분해야 합니다.
+
+        // 그럼 지금 상황에서는 매개 변수를 받지 않고
+        // return this.num1 + this.num2; // 이렇게 해도 됩니다.
+
+        // 이번에는 그럼 일반 메서드니까 클래스 변수는 사용하지 못 할까? 아래 주석 제거하세요!
+        //         System.out.println("InstMethod7_1.num3 = " + InstMethod7_1.num3); // 당연하게도 사용 가능합니다!
+
+        return num1 + num2;
+    }
+
+
+}
+
+class InstMethod7_1Main {
+
+    public static void main(String[] args) {
+        InstMethod7_1 methodTest = new InstMethod7_1(); // 객체 생성
+        methodTest.num1 = 10;
+        methodTest.num2 = 20;
+
+        // 참조변수를 사용하여 인스턴스 메서드 호출
+        System.out.println("result : " + methodTest.add(methodTest.num1, methodTest.num2));
+//         System.out.println("result : " + methodTest.add(80,90));
+
+    }
+}
+
+class Overloading8_1 {
+
+    int add(int a, int b) {
+        System.out.println("int add(int a, int b)");
+        return a + b;
+    }
+
+//    void add(int a, int b) { // 반환 타입이 다르다고 오버로딩이 성립되지는 않음
+//        System.out.println("void add(int a, int b)");
+//        System.out.println("a + b = " + a + b);
+//    }
+
+    long add(long a, long b) {
+        System.out.println("long add(long a, long b)");
+        return a + b;
+    }
+
+    long add(long a, int b) {
+        System.out.println("long add(long a, int b)");
+        return a + b;
+    }
+
+    long add(int a, long b) {
+        System.out.println("long add(int a, long b)");
+        return a + b;
+    }
+
+}
+
+class Overloading8_1Main {
+    public static void main(String[] args) {
+        Overloading8_1 test = new Overloading8_1();
+        System.out.println(test.add(10, 20));
+        System.out.println(test.add(13L, 17L));
+        System.out.println(test.add(5L, 10));
+        System.out.println(test.add(12, 23L));
+
+        System.out.println();
+
+        // 그런데 이때 위에 int add(int a, int b)  를 주석한다면
+        test.add(10, 20); // 여기에 Ambiguous method call Error 가 발생합니다.
+        // int, int 는 (long, int) , (int, long) 2개의 메서드 모두 가능하기 때문에 컴퓨터가 하나를
+        // 마음대로 선택할 수가 없어서 발생하는 오류입니다.
+
+    }
+}
+
+class Tv9_1 {
+    // 속성 : 변수 선언
+    boolean power; // 전원상태
+    int channel;  // 채널
+    String color; // 색깔
+    long price; // 가격
+
+    // 위 속성에서 필수로 초기값이 필요한 값들을 초기화 해주는 기본 생성자
+    public Tv9_1() {
+        power = false;
+        channel = 1;
+    }
+
+    //  오버로딩 한 생성자 - 매장 진열 용 일 경우에는 가격과 색깔의 초기화가 필요합니다. this 는 이전 챕터에서 잠깐 봤었죠! 매개변수와 인스턴스변수를 구분하기 위해 사용하겠습니다.
+    public Tv9_1(String color, long price) {
+        power = false; // this.power, power 둘다 지금 상황에서는 인스턴스 변수를 명확하게 판단 할 수 있기 때문에 어떤걸 사용해도 상관 없습니다.
+        channel = 1;
+        this.color = color;
+        this.price = price;
+    }
+
+    // 기능 : 메서드 선언
+    void power() {  // 전원 기능
+        power = !power;
+        if (power) {
+            System.out.println("전원 ON");
+        } else {
+            System.out.println("전원 OFF");
+        }
+    }
+
+    void channelUp() { // 채널 증가
+        channel++;
+        System.out.println("채널 증가");
+    }
+
+    void channelDown() { // 채널 감소
+        channel--;
+        System.out.println("채널 감소");
+    }
+
+}
+
+class Tv9_1Main {
+    public static void main(String[] args) {
+        // 기본 초기화된 Tv9_1 생성
+        Tv9_1 tv = new Tv9_1();
+        System.out.print("기본 생성자 TV: ");
+        tv.power();
+
+        // 진열 용 Tv9_1 생성
+        Tv9_1 exTv = new Tv9_1("보라색", 3456789);
+        System.out.print("오버로딩 생성자 TV: ");
+        exTv.power();
+        System.out.println("exTv.color = " + exTv.color);
+        System.out.println("exTv.price = " + exTv.price);
+
+        // 근데 이때 주의할 점!
+        // 기본 생성자는 없고 오버로딩한 생성자만 있을 경우!
+        // 컴파일러는 기본 생성자를 만들어주지 않기 때문에 기본 생성자를 사용하려고 하면 Error 발생!
+        // 위 기본 생성자를 주석 하세요!!!!
+        Tv9_1 tv2 = new Tv9_1(); // Error 발생, 기본 생성자가 없기 때문에 매개 변수를 넣으라고 intellij 가 요구합니다.
+
+    }
+}
+
+class Tv10_1 {
+    // 속성 : 변수 선언
+    boolean power; // 전원상태
+    int channel;  // 채널
+    String color; // 색깔
+    long price; // 가격
+
+    // 위 속성에서 필수로 초기값이 필요한 값들을 초기화 해주는 기본 생성자
+    public Tv10_1() {
+        this.power = false;
+        this.channel = 1;
+    }
+
+    //  오버로딩 한 생성자 - 매장 진열 용 일 경우에는 가격과 색깔의 초기화가 필요합니다.
+    public Tv10_1(String color, long price) {
+        this.power = false;
+        this.channel = 1;
+        this.color = color;
+        this.price = price;
+    }
+
+    // 기능 : 메서드 선언
+    void power() {  // 전원 기능
+        this.power = !power;
+        if (this.power) {
+            System.out.println("전원 ON");
+        } else {
+            System.out.println("전원 OFF");
+        }
+    }
+
+    void channelUp() { // 채널 증가
+        this.channel++;
+        System.out.println("채널 증가");
+    }
+
+    void channelDown() { // 채널 감소
+        this.channel--;
+        System.out.println("채널 감소");
+    }
+
+    // 색깔을 수정하고 자기 자신을 반환하는 메서드
+    Tv10_1 changeColor(String color) { // 반환 타입으로 자기자신인 Tv 선언
+        this.color = color;
+        System.out.println("색깔 변경 완료!");
+        return this; // this 는 자기 자신을 가리키는 참조변수!
+    }
+
+}
+
+class Tv10_1Main {
+    public static void main(String[] args) {
+        // 기본 초기화된 Tv10_1 생성
+        Tv10_1 tv = new Tv10_1();
+        System.out.print("기본 생성자 Tv10_1: ");
+        tv.power();
+
+        // 진열 용 Tv10_1 생성
+        Tv10_1 exTv = new Tv10_1("보라색", 3456789);
+        System.out.print("오버로딩 생성자 Tv10_1: ");
+        exTv.power();
+        System.out.println("exTv.color = " + exTv.color);
+        System.out.println("exTv.price = " + exTv.price);
+        System.out.println();
+
+        // 진열 용 Tv10_1 의 색깔을 수정하고 수정된 객체를 참조변수에 저장하겠습니다.
+        Tv10_1 exTvThis = exTv.changeColor("파란색");
+        // 색깔이 변경된 Tv의 주소가 저장된 참조변수 exTvThis 를 사용하여 변경된 색깔 확인
+        System.out.println("색깔이 변경되었는지 확인 exTvThis.color : " + exTvThis.color);
+        // 당연히 exTv 이걸로 확인해도 색깔이 변경되어 있습니다.
+        System.out.println("exTv.color = " + exTv.color);
+    }
+}
+
+class Tv10_2 {
+    // 속성 : 변수 선언
+    boolean power; // 전원상태
+    int channel;  // 채널
+    String color; // 색깔
+    long price; // 가격
+
+    // 위 속성에서 필수로 초기값이 필요한 값들을 초기화 해주는 기본 생성자
+    public Tv10_2() {
+        this.power = false;
+        this.channel = 1;
+    }
+
+    //  오버로딩 한 생성자 - 매장 진열 용 일 경우에는 가격과 색깔의 초기화가 필요합니다.
+    public Tv10_2(String color, long price) {
+        // 아래 초기화 내용은 위에 기본생성자와 완전히 똑같습니다.
+        // 이럴 때 this() 를 사용합니다.
+        // this.power = false;
+        // this.channel = 1;
+
+        this(); // 기본 생성자를 호출합니다.
+        // Tv10_2() // 이렇게는 불가능 합니다!
+
+        this.color = color;
+        this.price = price;
+
+        // this(); // 생성자 호출은 반드시 첫 줄에서만 가능합니다.
+    }
+
+    // 기능 : 메서드 선언
+    void power() {  // 전원 기능
+        this.power = !power;
+        if (this.power) {
+            System.out.println("전원 ON");
+        } else {
+            System.out.println("전원 OFF");
+        }
+    }
+
+    void channelUp() { // 채널 증가
+        this.channel++;
+        System.out.println("채널 증가");
+    }
+
+    void channelDown() { // 채널 감소
+        this.channel--;
+        System.out.println("채널 감소");
+    }
+
+    // 색깔을 수정하고 자기 자신을 반환하는 메서드
+    Tv10_2 changeColor(String color) { // 반환 타입으로 자기자신인 Tv 선언
+        this.color = color;
+        System.out.println("색깔 변경 완료!");
+        return this; // this 는 자기 자신을 가리키는 참조변수!
+    }
+
+}
+
+class Tv10_2Main {
+    public static void main(String[] args) {
+        // 기본 초기화된 Tv10_2 생성
+        Tv10_2 tv = new Tv10_2();
+        System.out.print("기본 생성자 Tv10_2: ");
+        tv.power();
+
+        // 진열 용 Tv10_2 생성
+        Tv10_2 exTv = new Tv10_2("보라색", 3456789);
+        System.out.print("오버로딩 생성자 Tv10_2: ");
+        exTv.power();
+        System.out.println("exTv.color = " + exTv.color);
+        System.out.println("exTv.price = " + exTv.price);
+        System.out.println();
+
+        // 진열 용 Tv10_2 의 색깔을 수정하고 수정된 객체를 참조변수에 저장하겠습니다.
+        Tv10_2 exTvThis = exTv.changeColor("파란색");
+        // 색깔이 변경된 Tv의 주소가 저장된 참조변수 exTvThis 를 사용하여 변경된 색깔 확인
+        System.out.println("색깔이 변경되었는지 확인 exTvThis.color : " + exTvThis.color);
+        // 당연히 exTv 이걸로 확인해도 색깔이 변경되어 있습니다.
+        System.out.println("exTv.color = " + exTv.color);
+    }
+}
+
+//class Tv11_1 {
+//    boolean power = false;    // 기본형 변수의 초기화
+//    int channel = 1;          // 기본형 변수의 초기화
+//    Audio audi = new Audio(); // 참조형 변수의 초기화, 참조형은 객체주소 or null 로 초기화!!
+//    // 참조형의 기본값은 null 입니다!!
+//    ...
+//}
+//
+//class Tv11_2 {
+//    static boolean power;
+//    int channel;
+//
+//    // 클래스 초기화 블럭
+//    static
+//    {
+//        power = false;
+//    }
+//
+//    // 인스턴스 초기화 블럭
+//    {
+//        channel = 1;
+//    }
+//    ...
+//}
+//
+//class Tv11_3 {
+//    // 속성 : 변수 선언
+//    boolean power; // 전원상태
+//    int channel;  // 채널
+//    String color; // 색깔
+//    long price; // 가격
+//
+//    // 위 속성에서 필수로 초기값이 필요한 값들을 초기화 해주는 기본 생성자
+//    Tv11_3() {
+//        this.power = false;
+//        this.channel = 1;
+//    }
+//    ...
+//}
