@@ -882,3 +882,643 @@ class Tv10_2Main {
 //    }
 //    ...
 //}
+
+//class Point {
+//    int x = 10;
+//    int y = 20;
+//}
+//
+//class Point3D extends Point{
+//    int z = 30;
+//}
+
+//class PointEx1 {
+//    public static void main(String[] args) {
+//        Point point = new Point();
+//        Point3D point3D = new Point3D();
+//
+//        System.out.println("point.x = " + point.x);
+//        System.out.println("point.y = " + point.y + "\n");
+//
+//        System.out.println("point3D.x = " + point3D.x);
+//        System.out.println("point3D.y = " + point3D.y);
+//        System.out.println("point3D.z = " + point3D.z);
+//
+//        // 조상의 멤버를 상속받아 Point3D 클래스에 자동으로 Point의 멤버변수가 추가됩니다.
+//    }
+//}
+//
+//class Point {
+//    int x = 10;
+//}
+//
+//class Point3D extends Point{
+//    int z = 30;
+//}
+//
+//class PointEx2 {
+//    public static void main(String[] args) {
+//        Point point = new Point();
+//        Point3D point3D = new Point3D();
+//
+//        System.out.println("point.x = " + point.x);
+//        System.out.println("point.y = " + point.y + "\n");
+//
+//        System.out.println("point3D.x = " + point3D.x);
+//        System.out.println("point3D.y = " + point3D.y);
+//        System.out.println("point3D.z = " + point3D.z);
+//
+//        // 조상 클래스인 Point 클래스의 멤버변수 y가 없어지면서 Point3D 클래스에서도 멤버변수 y를 사용할 수 없게 되었습니다.
+//    }
+//}
+
+//class Point {
+//    int x,y;
+//    String getLocation() {
+//        return "x: " + x + ", y: " + y;
+//    }
+//}
+//
+//class Point3D extends Point {
+//    int z;
+//
+////    @Override
+////    String getLocation() {
+////        return "x: " + x + ", y: " + y + ", z: " + z;
+////    }
+//}
+//
+//class OverrideEx1 {
+//    public static void main(String[] args) {
+//        Point3D point3D = new Point3D();
+//        point3D.x = 10;
+//        point3D.y = 20;
+//        point3D.z = 30;
+//        System.out.println(point3D.getLocation());
+//
+//        // 조상 클래스 Point 의 getLocation 를 그대로 사용하면 z 는 출력되지 않습니다.
+//        // 위에 Point3D의 getLocation 주석을 제거해 주세요!
+//    }
+//}
+
+//class Point {
+//    int x = 10;
+//    int y = 20;
+//
+//    void move(){
+//        ++x;
+//        ++y;
+//    }
+//}
+//
+//class Point3D extends Point {
+//    int z = 30;
+//
+//    @Override
+//    void move() {
+//        ++x;
+//        ++y;
+//        ++z;
+//    }
+//}
+//
+//class OverrideEx2 {
+//    public static void main(String[] args) {
+//        Point point = new Point();
+//        Point3D point3D = new Point3D();
+//
+//        point.move();
+//        System.out.println("point.x = " + point.x);
+//        System.out.println("point.y = " + point.y + "\n");
+//
+//        point3D.move();
+//        System.out.println("point3D.x = " + point3D.x);
+//        System.out.println("point3D.y = " + point3D.y);
+//        System.out.println("point3D.z = " + point3D.z);
+//
+//        // Point의 move는 x, y축으로 1칸씩 앞으로 이동하지만, Point3D의 move는 z축으로도 1만큼 움직입니다.
+//    }
+//}
+//
+//class Parent {
+//    int x = 10;
+//}
+//
+//class Child extends Parent {
+//    int x = 30; // 조상 클래스 x 와 변수명이 동일
+//    // 이름이 같아도 둘다 존재합니다. 그래서 super 참조변수로 구별합니다.
+//
+//    Child() {
+//        System.out.println("생성자에서 조상의 변수 x 접근 = " + super.x);
+//        System.out.println("생성자에서 현재 객체 자신의 x = " + this.x);
+//    }
+//
+//    void childMethod() {
+//        System.out.println("Child 의 x = " + x);
+//        System.out.println("현재 객체 자신의 x = " + this.x);
+//        System.out.println("Parent 의 x 의 " + super.x);
+//
+//        // 만약 Child 에 변수 x 가 없다고 한다면
+//        // 위 int x = 30; 을 주석하시면 this.x 는 부모클래스의 x를 가리킵니다.
+//        // Child 의 x = 10 이 됩니다.
+//    }
+//
+//}
+//
+//class SuperEx1 {
+//    public static void main(String[] args) {
+//        Child child = new Child();
+//        child.childMethod();
+//    }
+//}
+
+//class Point {
+//    int x = 10;
+//    int y = 20;
+//
+//    void move(){
+//        ++x;
+//        ++y;
+//    }
+//}
+//
+//class Point3D extends Point {
+//    int z = 30;
+//
+//    @Override
+//    void move() {
+//        super.move();
+//        ++z;
+//    }
+//}
+//
+//class SuperEx2 {
+//    public static void main(String[] args) {
+//        Point point = new Point();
+//        Point3D point3D = new Point3D();
+//
+//        point.move();
+//        System.out.println("point.x = " + point.x);
+//        System.out.println("point.y = " + point.y + "\n");
+//
+//        point3D.move();
+//        System.out.println("point3D.x = " + point3D.x);
+//        System.out.println("point3D.y = " + point3D.y);
+//        System.out.println("point3D.z = " + point3D.z);
+//
+//        // 부모 클래스의 메서드에 기능 추가가 필요 할 경우 super 예약어를 사용할 수 있습니다.
+//    }
+//}
+//class Parent {
+//    int x,y,z;
+//
+//    public Parent() {
+//        System.out.println("난 부모 클래스 생성자");
+//    }
+//
+//    public Parent(int x, int y, int z) {
+//        this.x = x;
+//        this.y = y;
+//        this.z = z;
+//    }
+//}
+//
+//class Child extends Parent {
+//
+//    Child() {
+//        // super() 를 통해서 부모 클래스의 멤버변수를 초기화합니다.
+//        super(10,20,30);
+//    }
+//
+//    Child(int num) {
+//        // 이렇게 생성자에 this() or super() 가 없으면 자동으로 컴파일러가 super(); 를 붙여준다.
+//
+//        // 주의!!
+//        // 그런데 만약 위에 부모클래스의 기본 생성자를 넣지 않으면 현재 오버로딩한 부모클래스의 생성자가 있기 때문에
+//        // 컴파일러가 기본 생성자를 만들어주지 않지만 여기에는 super(); 로 부모클래스의 기본생성자를 호출하기 때문에 오류가 발생한다.
+//        // 위에 부모클래스 기본 생성자 주석 해보자!
+//        System.out.println("오버로딩 생성자");
+//    }
+//}
+//
+//class SuperCEx1 {
+//    public static void main(String[] args) {
+//        Child child = new Child(); // 이렇게 하면 super(10,20,30);를 통해 값 초기화
+//        System.out.println("child.x = " + child.x);
+//        System.out.println("child.y = " + child.y);
+//        System.out.println("child.z = " + child.z);
+//        System.out.println();
+//
+//        new Child(10000);
+//    }
+//}
+//public class Object {
+//
+//    private int age;
+//    private String name;
+//
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setAge(int age) {
+//        this.age = age;
+//    }
+//
+//    public void setName(String name) {
+//        // private 메서드 checkName 사용
+//        this.name = checkName(name) ? name : "anonymous";
+//    }
+//
+//    // 이름을 입력할 때 공백 인지 확인 하는 메서드
+//    // Capsule 클래스 내부에서만 사용할 것이기 때문에 private
+//    private boolean checkName(String name) {
+//        return name.length() > 0;
+//    }
+//}
+//
+//class CapsuleMain {
+//    public static void main(String[] args) {
+//        Object capsule = new Object();
+//        // capsule.age; // private 제어자 이기 때문에 접근 불가능
+//        // capsule.name; // private 제어자 이기 때문에 접근 불가능
+//
+//        // 따라서 직접 접근이 아니라 private 이 아닌 메서드를 통해서 접근한다.
+//        capsule.setAge(28);
+//        capsule.setName("bin");
+//
+//        System.out.println("capsule.getName() = " + capsule.getName());
+//        System.out.println("capsule.getAge() = " + capsule.getAge());
+//
+//        capsule.setName("");
+//        System.out.println("capsule.getName() = " + capsule.getName());
+//    }
+//}
+
+//class Whale extends Mammalia{
+//    // 고래는 포유류 이면서 바다에 살며 수영이 가능하다.
+//    public void swimming() {
+//        System.out.println("수영 하다.");
+//    }
+//
+//    @Override
+//    public void feeding() {
+//        System.out.println("고래는 모유 수유를 합니다.");
+//    }
+//
+//    @Override
+//    public void giveBirth() {
+//        System.out.println("고래는 새끼를 낳습니다.");
+//    }
+//}
+//
+//class Mammalia {
+//    // 포유류는 새끼를 낳고 수유를 한다.
+//    public void feeding() {
+//        System.out.println("모유 수유를 합니다.");
+//    }
+//
+//    public void giveBirth() {
+//        System.out.println("새끼를 낳습니다.");
+//    }
+//}
+//
+//class PolyTest1 {
+//    public static void main(String[] args) {
+//        // 고래는 포유류이기 때문에 Mammalia 에 담길 수 있다.
+//        Mammalia mammalia = new Whale();
+//
+//        // 하지만 포유류 전부가 바다에 살고 수영을 할 수 있는 것은 아니기 때문에
+//        // 수영 하다 메서드는 실행 불가
+////         mammalia.swimming(); // Error 발생
+//
+//        // 또한 모든 포유류가 전부 고래 처럼 수영이 가능한 것이 아니기 때문에 아래 상황은 불가능 하다.
+////         Whale whale = new Mammalia(); // Error 발생
+//
+//        mammalia.giveBirth();
+//        mammalia.feeding();
+//    }
+//}
+
+//class Whale extends Mammalia{
+//    // 고래는 포유류 이면서 바다에 살며 수영이 가능하다.
+//    public void swimming() {
+//        System.out.println("수영 하다.");
+//    }
+//
+//    @Override
+//    public void feeding() {
+//        System.out.println("고래는 모유 수유를 합니다.");
+//    }
+//
+//    @Override
+//    public void giveBirth() {
+//        System.out.println("고래는 새끼를 낳습니다.");
+//    }
+//}
+//
+//class Mammalia {
+//    // 포유류는 새끼를 낳고 수유를 한다.
+//    public void feeding() {
+//        System.out.println("모유 수유를 합니다.");
+//    }
+//
+//    public void giveBirth() {
+//        System.out.println("새끼를 낳습니다.");
+//    }
+//}
+//
+//class Bird {
+//    public void fly() {
+//        System.out.println("Bird.fly");
+//    }
+//}
+//
+//class PolyTest2 {
+//    public static void main(String[] args) {
+//        Whale whale = new Whale();
+//        Mammalia mammalia = (Mammalia) whale; //(Mammalia) 생략 가능!
+//        mammalia.giveBirth();
+//        mammalia.feeding();
+//
+//        // 형변환을 통해 담긴 mammalia 참조변수를 형변환을 통해
+//        // 다시 Whale 로 변환할 수 있습니다.
+//        Whale whale2 = (Whale) mammalia; // (Whale) 생략 불가능!
+//        whale2.swimming();
+//
+//        // 조상, 자손 관계에서만 형변환이 가능합니다.
+//        Bird bird = new Bird();
+////        Mammalia mammalia1 = bird; // Error
+////        Mammalia mammalia2 = (Mammalia) bird; // Error
+//
+//    }
+//}
+//
+//class A {}
+//class B extends A{}
+//class Instanceof {
+//    public static void main(String[] args) {
+//        A a = new A();
+//        B b = new B();
+//
+//        System.out.println("a instanceof A = " + (a instanceof A));
+//
+//        // a 객체는 B 클래스의 부모 클래스 입니다.
+//        // 따라서 아래는 false 입니다.
+//        System.out.println("a instanceof B = " + (a instanceof B));
+//
+//        System.out.println("b instanceof A = " + (b instanceof A));
+//
+//        System.out.println("b instanceof B = " + (b instanceof B));
+//    }
+//}
+
+//class Animal {
+//    public void move() {
+//        System.out.println("동물이 움직입니다.");
+//    }
+//
+//    public void onomatopoeia(){
+//        System.out.println("동물이 소리냅니다.");
+//    }
+//}
+//
+//class Dog extends Animal {
+//    @Override
+//    public void move() {
+//        System.out.println("강아지가 달립니다.");
+//    }
+//
+//    @Override
+//    public void onomatopoeia() {
+//        System.out.println("멍멍!");
+//    }
+//}
+//
+//class Bird extends Animal {
+//    @Override
+//    public void move() {
+//        System.out.println("새가 날아다닙니다.");
+//    }
+//
+//    @Override
+//    public void onomatopoeia() {
+//        System.out.println("짹짹!");
+//    }
+//}
+//
+//class Action{
+//    static void doMove(Animal animal){
+//        animal.move();
+//    }
+//
+//    static void doCry(Animal animal){
+//        animal.onomatopoeia();
+//    }
+//}
+
+//public class Object {
+//
+//    public static void main(String[] args) {
+//        Dog dog = new Dog();
+//        Bird bird = new Bird();
+//
+//        Action.doMove(dog);
+//        Action.doCry(dog);
+//
+//        System.out.println();
+//
+//        Action.doMove(bird);
+//        Action.doCry(bird);
+//    }
+//}
+//class Parent {
+//    void accost() {
+//        System.out.println("Parent.accost");
+//    }
+//}
+//
+//class Child1 extends Parent {
+//    @Override
+//    void accost() {
+//        System.out.println("Child1.accost");
+//    }
+//}
+//
+//class Child2 extends Parent {
+//    @Override
+//    void accost() {
+//        System.out.println("Child2.accost");
+//    }
+//}
+//
+//class Child3 extends Parent {
+//    @Override
+//    void accost() {
+//        System.out.println("Child3.accost");
+//    }
+//}
+//
+//class Poly {
+//    //    void checkChild(Child1 child) { // 이렇게 하면 Child2,3를 사용하지 못하니 활용성이 떨어진다.
+////        child.accost();
+////    }
+//    void checkChild(Parent child) {
+//        child.accost();
+//    }
+//}
+//
+//class ParPoly2 {
+//    public static void main(String[] args) {
+//        Poly poly = new Poly();
+//
+//        Child1 child1 = new Child1();
+//        Child2 child2 = new Child2();
+//        Child3 child3 = new Child3();
+//
+//        poly.checkChild(child1);
+//        poly.checkChild(child2);
+//        poly.checkChild(child3);
+//
+//        // checkChild(Parent parent) 이렇게 부모클래스를 참조형 매개변수로 사용하여
+//        // 자식 클래스 3가지 모두를 하나의 checkChild 메서드로 처리 할 수 있다.
+//    }
+//}
+
+
+class Animal {
+    public void move() {
+        System.out.println("동물이 움직입니다.");
+    }
+
+    public void onomatopoeia(){
+        System.out.println("동물이 소리냅니다.");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void move() {
+        System.out.println("강아지가 달립니다.");
+    }
+
+    @Override
+    public void onomatopoeia() {
+        System.out.println("멍멍!");
+    }
+}
+
+class Bird extends Animal {
+    @Override
+    public void move() {
+        System.out.println("새가 날아다닙니다.");
+    }
+
+    @Override
+    public void onomatopoeia() {
+        System.out.println("짹짹!");
+    }
+}
+
+class Action{
+    static void doMove(Animal animal){
+        animal.move();
+    }
+
+    static void doCry(Animal animal){
+        animal.onomatopoeia();
+    }
+}
+
+public class Object {
+
+    public static void main(String[] args) {
+        Animal[] animals = new Animal[3];
+
+        animals[0] = new Animal();
+        animals[1] = new Dog();
+        animals[2] = new Bird();
+
+        for (Animal animal : animals) {
+            animal.move();
+            animal.onomatopoeia();
+            System.out.println();
+        }
+    }
+}
+
+//abstract class Player { // 추상 메서드를 가진 클래스 abstract
+//    // 속성 : 인스턴스 변수 선언 가능
+//    boolean pause; // 일시정지 상태를 저장하기 위한 변수
+//    int currentPos; // 현재 Play 되고 있는 위치 저장하기 위한 변수
+//
+//    // 추상클래스도 생성자 필요!
+//    Player() {
+//        pause = false;
+//        currentPos = 0;
+//    }
+//
+//    abstract void play(int pos); // 추상 메서드 (몸통 {} 블럭이 없음)
+//    abstract void stop(); // 추상 메서드
+//
+//    // 일반 인스턴스 메서드
+//    void play() {
+//        // 메서드는 선언부만 알고 있어도 호출이 가능하다
+//        // 따라서 추상 메서드도 호출이 가능하다
+//        play(currentPos); // 추상 메서드 호출
+//        // 위 추상 메서드를 구현한 클래스의 인스턴스를 통해 호출되기 때문에
+//        // 해당 클래스에 구현한 play(int pos)의 구현부가 실행될 것입니다.
+//    }
+//}
+
+//abstract class Player {
+//    boolean pause; // 일시정지 상태를 저장하기 위한 변수
+//    int currentPos; // 현재 Play 되고 있는 위치 저장하기 위한 변수
+//
+//    Player() {
+//        pause = true;
+//        currentPos = 0;
+//    }
+//
+//    abstract void play(int pos); // 추상 메서드 (몸통 {} 블럭이 없음)
+//    abstract void stop(); // 추상 메서드
+//
+//    // 일반 인스턴스 메서드
+//    void play() {
+//        System.out.println();
+//        System.out.println("play() 일반 인스턴스 메서드");
+//        play(currentPos);
+//    }
+//}
+//
+//class AudioPlayer extends Player {
+//    @Override
+//    void play(int pos) {
+//        System.out.println();
+//        this.currentPos =  pos;
+//        this.pause = false;
+//        System.out.println("추상클래스 Player 의 play(int pos) 구현");
+//        System.out.println("현재 위치 = " + this.currentPos);
+//        System.out.println("다시 시작합니다.");
+//    }
+//
+//    @Override
+//    void stop() {
+//        System.out.println("재생을 멈춥니다.");
+//        this.pause = true;
+//    }
+//}
+//
+//class AudioPlayerTest {
+//    public static void main(String[] args) {
+//        AudioPlayer audioPlayer = new AudioPlayer();
+//        audioPlayer.play(100);
+//        audioPlayer.stop();
+//        audioPlayer.play();
+//
+//    }
+//}
