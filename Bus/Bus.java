@@ -1,20 +1,26 @@
 package Bus;
 
-public class Bus{
-    int maxpeopel = 30;
+class Bus{
+    int maxpeople;
     int people;
-    int bus1 = 1000;
-    int bus2 = 2000;
-    final int money = 1000;
+    int allpeople;
+    int busNumber;
+    int money;
     int allmoney;
     int oil = 100;
     String state;
     int speed;
-    private String maxpeople;
 
-    public Bus() {
-        System.out.println(bus1 + "번 버스객체 생성!");
-        System.out.println(bus2 + "번 버스객체 생성!");
+    public Bus(int maxpeople, int people,int allpeople, int busNumber, int money, int oil,int speed,String state) {
+        this.maxpeople=maxpeople;
+        this.people = people;
+        this.allpeople = allpeople;
+        this.busNumber = busNumber;
+        this.money = money;
+        this.oil = oil;
+        this.speed = speed;
+        this.state = "운행중";
     }
 }
+
 
