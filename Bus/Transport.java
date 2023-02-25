@@ -30,7 +30,7 @@ public class Transport{
         bus1.maxpeople -=  bus1.people;
         System.out.println("잔여 승객수:"+ bus1.maxpeople);
         System.out.println("요금확인:"+ bus1.people*bus1.money);
-        bus1.oil -= 45;
+        bus1.oil -= 55;
         System.out.println("주유량:"+  bus1.oil);
         System.out.println("주유가 필요합니다");
         bus1.state ="운행";
